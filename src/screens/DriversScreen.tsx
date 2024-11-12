@@ -59,18 +59,9 @@ const DriversScreen = ({
         <DriverCard
           familyName={item.familyName}
           givenName={item.givenName}
-          handlePress={() =>
-            navigateToDriver(
-              item.driverId,
-              `${item.givenName} ${item.familyName}`,
-            )
-          }
-          handlePressRightAction={() =>
-            navigateToRaces(
-              item.driverId,
-              `${item.givenName} ${item.familyName}`,
-            )
-          }
+          driverId={item.driverId}
+          handlePress={navigateToDriver}
+          handlePressRightAction={navigateToRaces}
         />
       )}
       keyExtractor={item => item.driverId}

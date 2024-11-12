@@ -4,8 +4,9 @@ import React from 'react';
 type DriverCardProps = {
   familyName: string;
   givenName: string;
-  handlePress: () => void;
-  handlePressRightAction: () => void;
+  driverId: string;
+  handlePress: (driverId: string, fullName: string) => void;
+  handlePressRightAction: (driverId: string, fullName: string) => void;
 };
 
 export const ITEM_HEIGHT = 50;
@@ -13,15 +14,22 @@ export const ITEM_HEIGHT = 50;
 const DriverCard = ({
   givenName,
   familyName,
+  driverId,
   handlePress,
   handlePressRightAction,
 }: DriverCardProps) => {
   return (
-    <Pressable style={styles.wrapper} onPress={handlePress}>
+    <Pressable
+      style={styles.wrapper}
+      onPress={() => handlePress(driverId, `${givenName} ${familyName}`)}>
       <Text numberOfLines={1} style={styles.fullNameContainer}>
         👨 {givenName} {familyName}
       </Text>
-      <Pressable style={styles.rightAction} onPress={handlePressRightAction}>
+      <Pressable
+        style={styles.rightAction}
+        onPress={() =>
+          handlePressRightAction(driverId, `${givenName} ${familyName}`)
+        }>
         <Text>🏁 Races</Text>
       </Pressable>
     </Pressable>
