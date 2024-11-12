@@ -1,5 +1,5 @@
 import {Pressable, StyleSheet, Text} from 'react-native';
-import React from 'react'
+import React from 'react';
 
 type DriverCardProps = {
   familyName: string;
