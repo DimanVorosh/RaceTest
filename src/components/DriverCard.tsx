@@ -1,4 +1,5 @@
 import {Pressable, StyleSheet, Text} from 'react-native';
+import React from 'react'
 
 type DriverCardProps = {
   familyName: string;
@@ -61,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DriverCard;
+export default React.memo(DriverCard);
